@@ -1,0 +1,130 @@
+/* Simple, responsive styling for the QuickNotes API client. */
+:root {
+    color-scheme: light;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #202b28;
+    background: #f4f7f5;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    line-height: 1.55;
+}
+
+.container {
+    width: min(100% - 2rem, 900px);
+    margin-inline: auto;
+}
+
+.site-header {
+    background: #183d32;
+    color: #fff;
+    padding: 2.5rem 0;
+    margin-bottom: 2rem;
+}
+
+.eyebrow {
+    margin: 0 0 .35rem;
+    font-size: .78rem;
+    font-weight: 750;
+    letter-spacing: .12em;
+    color: #c7e8d7;
+}
+
+h1, h2, p { margin-top: 0; }
+h1 { margin-bottom: .25rem; font-size: clamp(2rem, 5vw, 3rem); }
+.subtitle { margin-bottom: 0; color: #e1eee8; }
+
+main { display: grid; gap: 1.5rem; }
+.panel {
+    padding: clamp(1rem, 3vw, 1.5rem);
+    background: #fff;
+    border: 1px solid #dce5df;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgb(24 61 50 / 5%);
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.section-heading p { color: #5d6d65; margin-bottom: .5rem; }
+
+button {
+    font: inherit;
+    font-weight: 650;
+    border: 0;
+    border-radius: 8px;
+    padding: .7rem 1rem;
+    color: #fff;
+    background: #236b50;
+    cursor: pointer;
+}
+button:hover:not(:disabled) { background: #184f3b; }
+button:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline: 3px solid #75b99a;
+    outline-offset: 2px;
+}
+button:disabled { opacity: .55; cursor: wait; }
+button.delete-btn {
+    background: #fff;
+    color: #9d2929;
+    border: 1px solid #e3b9b9;
+    padding: .4rem .7rem;
+    font-size: .9rem;
+}
+button.delete-btn:hover:not(:disabled) { background: #fff1f1; }
+
+.status {
+    min-height: 1.5rem;
+    margin: .75rem 0 1rem;
+    padding: .7rem .85rem;
+    border-radius: 8px;
+    background: #f0f3f1;
+    color: #34483d;
+}
+.status:empty { display: none; }
+.status.success { background: #e8f6ed; color: #176337; border: 1px solid #b9e3c7; }
+.status.error { background: #fff0f0; color: #922727; border: 1px solid #f0c2c2; }
+.status.loading { background: #eef5ff; color: #244f83; border: 1px solid #c9dcf5; }
+
+.notes-list { list-style: none; padding: 0; margin: 0; display: grid; gap: .8rem; }
+.note-card {
+    border: 1px solid #e0e7e2;
+    border-radius: 10px;
+    padding: 1rem;
+    overflow-wrap: anywhere;
+}
+.note-card h3 { margin: 0 0 .45rem; font-size: 1.08rem; }
+.note-card p { margin: 0 0 .9rem; color: #4e5e55; white-space: pre-wrap; }
+.note-meta { color: #718077; font-size: .8rem; margin-bottom: .6rem; }
+.empty-state { padding: 1rem; color: #68776e; background: #f8faf8; border-radius: 8px; }
+
+form { display: grid; gap: 1rem; }
+.form-field { display: grid; gap: .35rem; }
+label { font-weight: 650; }
+label span[aria-hidden="true"] { color: #a12c2c; }
+.optional, small { color: #65736b; font-weight: 400; }
+input, textarea {
+    width: 100%;
+    padding: .75rem;
+    border: 1px solid #cbd6ce;
+    border-radius: 8px;
+    font: inherit;
+    color: inherit;
+    background: #fff;
+}
+textarea { resize: vertical; }
+#submit-btn { justify-self: start; }
+.footer { padding: 1.5rem 0 2rem; color: #65736b; font-size: .9rem; }
+
+@media (max-width: 560px) {
+    .section-heading { flex-direction: column; }
+    .section-heading button { width: 100%; }
+}

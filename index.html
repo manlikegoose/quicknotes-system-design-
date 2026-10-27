@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="QuickNotes API client demo for creating, loading, and deleting notes.">
+    <title>QuickNotes — API Client</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="api.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <p class="eyebrow">API CLIENT DEMO</p>
+            <h1>QuickNotes</h1>
+            <p class="subtitle">A simple notes client connected to a practice API.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="panel" aria-labelledby="notes-heading">
+            <div class="section-heading">
+                <div>
+                    <h2 id="notes-heading">Your notes</h2>
+                    <p>Load sample notes, create a note, or remove one from this view.</p>
+                </div>
+                <button id="load-btn" type="button">Load notes</button>
+            </div>
+            <p id="status" class="status" role="status" aria-live="polite">Load notes to get started.</p>
+            <ul id="notes-list" class="notes-list"></ul>
+        </section>
+
+        <section class="panel" aria-labelledby="create-heading">
+            <h2 id="create-heading">Create a note</h2>
+            <form id="note-form">
+                <div class="form-field">
+                    <label for="title-input">Title <span aria-hidden="true">*</span></label>
+                    <input id="title-input" name="title" type="text" maxlength="100"
+                           required aria-describedby="title-help" placeholder="Give your note a title">
+                    <small id="title-help">Required, up to 100 characters.</small>
+                </div>
+                <div class="form-field">
+                    <label for="body-input">Note body <span class="optional">(optional)</span></label>
+                    <textarea id="body-input" name="body" rows="4"
+                              placeholder="Write your note here"></textarea>
+                </div>
+                <button id="submit-btn" type="submit">Create note</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="container footer">
+        <p>Practice client powered by JSONPlaceholder. Changes are not saved permanently by the demo API.</p>
+    </footer>
+</body>
+</html>
